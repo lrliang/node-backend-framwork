@@ -1,0 +1,36 @@
+{
+  "name": "node-backend-framwork",
+  "version": "1.0.0",
+  "description": "ES6 restful-api express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llr392425595/node-backend-framwork.git"
+  },
+  "keywords": [
+    "ES6",
+    "resful-api",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llr392425595/node-backend-framwork/issues"
+  },
+  "homepage": "https://github.com/llr392425595/node-backend-framwork#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
