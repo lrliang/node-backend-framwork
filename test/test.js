@@ -4,7 +4,7 @@ const app = require('../index');
 
 
 describe('GET /', () => {
-  it('respond with OK', (done) => {
-    request(app).get('/health-check').expect('OK', done);
+  it('respond with health', (done) => {
+    request(app).get('/health-check').expect('health', done);
   });
 });
