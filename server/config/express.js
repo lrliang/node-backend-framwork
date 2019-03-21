@@ -12,7 +12,7 @@ const helmet = require('helmet');
 const winstonInstance = require('./winston');
 const routes = require('../index.route');
 const config = require('./config');
-const APIError = require('../src/helpers/APIError');
+const APIError = require('../helpers/APIError');
 
 const app = express();
 
@@ -77,12 +77,11 @@ if (config.env !== 'test') {
 }
 
 // error handler, send stacktrace only during development
-app.use((err, req, res, next) => // eslint-disable-line no-unused-vars
-  // eslint-disable-next-line implicit-arrow-linebreak
-  res.status(err.status).json({
-    message: err.isPublic ? err.message : httpStatus[err.status],
-    stack: config.env === 'development' ? err.stack : {},
-  }));
+// eslint-disable-next-line no-unused-vars
+app.use((err, req, res, next) => res.status(err.status).json({
+  message: err.isPublic ? err.message : httpStatus[err.status],
+  stack: config.env === 'development' ? err.stack : {},
+}));
 
 
 module.exports = app;

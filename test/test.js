@@ -1,6 +1,6 @@
 const { describe } = require('mocha');
 const request = require('supertest');
-const app = require('../index');
+const app = require('../server/index');
 
 
 describe('GET /', () => {

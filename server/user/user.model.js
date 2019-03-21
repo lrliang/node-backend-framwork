@@ -5,7 +5,7 @@ const httpStatus = require('http-status');
 const uniqueValidator = require('mongoose-unique-validator');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const config = require('../../config/config');
+const config = require('../config/config');
 const APIError = require('../helpers/APIError');
 
 const UserSchema = new mongoose.Schema({
@@ -17,12 +17,12 @@ const UserSchema = new mongoose.Schema({
     match: [/^[a-zA-Z0-9]+$/, 'is invalid'],
     index: true,
   },
-  email: {
+  mobileNumber: {
     type: String,
     lowercase: true,
     unique: true,
     required: [true, 'can\'t be blank'],
-    match: [/\S+@\S+\.\S+/, 'is invalid'],
+    match: [/^[1-9][0-9]{10}$/, 'is invalid'],
     index: true,
   },
   bio: String,
@@ -56,7 +56,7 @@ UserSchema.method = {
   toAuthJSON() {
     return {
       username: this.username,
-      email: this.email,
+      mobileNumber: this.mobileNumber,
       token: this.generateJWT(),
       bio: this.bio,
       image: this.image,
@@ -68,7 +68,7 @@ UserSchema.statics = {
   /**
    * Get user
    * @param {ObjectId} id - The objectId of user.
-   * @returns {Promise<User, APIError>}
+   * @returns {Promise<User | never>}
    */
   get(id) {
     return this.findById(id)
@@ -107,4 +107,4 @@ UserSchema.statics = {
 
 };
 
-export default mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

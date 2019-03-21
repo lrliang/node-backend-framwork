@@ -2,9 +2,9 @@
   "name": "node-backend-framwork",
   "version": "1.0.0",
   "description": "ES6 restful-api express",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server",
     "test": "./node_modules/.bin/mocha ./test/test.js",
     "lint": "eslint"
   },
@@ -29,6 +29,7 @@
     "compression": "^1.7.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",
+    "debug": "^4.1.1",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-validation": "^1.0.2",
